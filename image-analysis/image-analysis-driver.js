@@ -7,12 +7,24 @@ class ImageAnalysisDriver {
     #node;
     #key;
     #region;
+    #supportedFeatures;
 
     constructor(node, key, region) {
-        // super();
         this.#node = node;
         this.#key = key;
         this.#region = region;
+        this.#supportedFeatures = new Set([
+            'Adult',
+            'Brands',
+            'Categories',
+            'Color',
+            'Description',
+            'Faces',
+            'ImageType',
+            'Objects',
+            'Tags',
+        ]);
+
         this.INPUT_MODE  = {
             file: 'file',
             url: 'url',
@@ -27,13 +39,27 @@ class ImageAnalysisDriver {
         }
     }
 
+    checkFeatures(features) {
+        const featuresArr = features.split(',');
+        const supportedFeatures = Array.from(this.#supportedFeatures).join(', ');
+
+        for (let i = 0; i < featuresArr.length; i++) {
+            featuresArr[i] = featuresArr[i].trim();
+            if (this.#supportedFeatures.has(featuresArr[i])) continue;
+            throw new Error(`Feature ${featuresArr[i]} is not supported, supported features are: ${supportedFeatures}`);
+        }
+
+        return featuresArr.join(',');
+    }
+
     async analyze(options) {
         // Test input mode
         this.checkInputMode(options);
+        // Clean and check features
+        options.features = this.checkFeatures(options.features);
 
         let config, data;
         if (options.inputMode === this.INPUT_MODE.url) {
-            // console.log(options, this.#key)
             config = {
                 headers: {
                     "Content-Type": "application/json",
@@ -72,18 +98,9 @@ class ImageAnalysisDriver {
     }
 
     async #analyzeInternal({ features, config, data }) {
-        this.#node.status({ fill: 'green', shape: 'dot', text: 'starting' });
-        try {
-            console.log(config);
-            const res = await axios.post(`https://westus.api.cognitive.microsoft.com/vision/v3.2/analyze?visualFeatures=Tags`, data, config);
-            console.log(res.data.tags);
-        } catch(e) {
-            // console.log(e);
-        }
-    }
-
-    #recognizing(source, e) {
-        this.#node.status({ fill: 'yellow', shape: 'dot', text: 'recognizing...'});
+        this.#node.status({ fill: 'green', shape: 'dot', text: 'recognizing' });
+        const res = await axios.post(`https://${this.#region}.api.cognitive.microsoft.com/vision/v3.2/analyze?visualFeatures=${features}`, data, config);
+        return res.data;
     }
 }
 
