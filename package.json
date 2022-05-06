@@ -1,0 +1,20 @@
+{
+  "name": "azure-computer-vision",
+  "version": "1.0.0",
+  "description": "Node-red nodes for Microsoft Azure Computer Vision",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Javascript",
+    "Azure",
+    "Computer Vision",
+    "node-red"
+  ],
+  "author": "Tsung Jui Wang",
+  "license": "MIT",
+  "dependencies": {
+    "@azure/cognitiveservices-computervision": "^8.2.0"
+  }
+}
