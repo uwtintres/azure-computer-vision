@@ -12,9 +12,19 @@
     "Computer Vision",
     "node-red"
   ],
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "node-red": {
+    "version": ">=2.0.0",
+    "nodes": {
+      "ms-img-analysis": "image-analysis/image-analysis.js"
+    }
+  },
   "author": "Tsung Jui Wang",
   "license": "MIT",
   "dependencies": {
-    "@azure/cognitiveservices-computervision": "^8.2.0"
+    "@azure/cognitiveservices-computervision": "^8.2.0",
+    "axios": "^0.27.2"
   }
 }

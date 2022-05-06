@@ -1,0 +1,120 @@
+<script type="text/javascript">
+    RED.nodes.registerType('img-analysis',{
+        category: 'Azure Computer Vision',
+        color: '#008AD7',
+        defaults: {
+            name: { value: ''  },
+            inputMode: { value: 'url', required: true },
+            imageFilePath: { value: '', validate: function() {
+                    // If input mode is file, imageFilePath is required
+                    if (this.inputMode === 'file') return !!this.imageFilePath;
+                    return true;
+            }},
+            imageUrl: { value: '', validate: function() {
+                    // If input mode is url, imageUrl is required
+                    if (this.inputMode === 'url') return !!this.imageUrl;
+                    return true;
+            }},
+            features: { value: '',  validate: function() {
+                    const rex = /^[a-zA-Z]+(\s*,\s*[a-zA-Z]+)*$/
+                    return rex.test(this.features)
+            }}
+        },
+        credentials: {
+            key: { type: 'password' },
+            region: { type: 'text' }
+        },
+        inputs: 1,
+        outputs: 1,
+        label: function() {
+            if (this.name) return this.name;
+            return 'img-analysis';
+        },
+        oneditprepare: function() {
+            $('#node-input-inputMode').on('change', function() {
+                if (this.value === 'url') {
+                    $('#node-input-div-imageFilePath').hide();
+                    $('#node-input-div-imageUrl').show();
+                } else {
+                    $('#node-input-div-imageFilePath').show();
+                    $('#node-input-div-imageUrl').hide();
+                }
+            });
+        },
+        icon: 'font-awesome/fa-exchange',
+    });
+</script>
+
+<script type="text/html" data-template-name="img-analysis">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name </label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-inputMode"><i class="fa fa-tag"></i> Input mode </label>
+        <select name="node-input-inputMode" id="node-input-inputMode">
+            <option value="file"> file </option>
+            <option value="url"> url </option>
+        </select>
+    </div>
+
+    <div id="node-input-div-imageFilePath" class="form-row">
+        <label for="node-input-imageFilePath"><i class="fa fa-tag"></i> Image file path </label>
+        <input type="text" id="node-input-imageFilePath" placeholder="Must be an absolute path to local file system">
+    </div>
+
+    <div id="node-input-div-imageUrl" class="form-row">
+        <label for="node-input-imageUrl"><i class="fa fa-tag"></i> Image url </label>
+        <input type="text" id="node-input-imageUrl" placeholder="URL to the image">
+    </div>
+
+    <div id="node-input-div-features" class="form-row">
+        <label for="node-input-features"><i class="fa fa-tag"></i> Features </label>
+        <input type="text" id="node-input-features" placeholder="Features to be included">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-key"><i class="fa fa-tag"></i> Key </label>
+        <input type="password" id="node-input-key" placeholder="Your beautiful key">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-region"><i class="fa fa-tag"></i> Region </label>
+        <input type="text" id="node-input-region" placeholder="Region">
+    </div>
+</script>
+
+<!--<script type="text/html" data-help-name="img-analysis">-->
+<!--    <p> Speech translation of Microsoft Cognitive Services </p>-->
+<!--    <h3>Inputs</h3>-->
+<!--    <dl class="message-properties">-->
+<!--        <dt> msg.payload-->
+<!--            <span class="property-type"> Buffer | string </span>-->
+<!--        </dt>-->
+<!--        <dd>-->
+<!--            If the mode is 'file', this field should be a string of an absolute path where the WAV file to be translated is.-->
+<!--            If the mode is 'payload', this field should be a Buffer class instance containing the speech binary content to be translated.-->
+<!--        </dd>-->
+<!--    </dl>-->
+<!--    <h3>Outputs</h3>-->
+<!--    <dl class="message-properties">-->
+<!--        <dt> msg.payload-->
+<!--            <span class="property-type"> array </span>-->
+<!--        </dt>-->
+<!--        <dd>-->
+<!--            An array of translated text and the code of the language used in translation. Each array element is an object of <code>{ language, translatedText }</code>.-->
+<!--        </dd>-->
+<!--    </dl>-->
+<!--    <h3>Details</h3>-->
+<!--    <p>-->
+<!--        There are two input modes for this node: file mode and payload mode.-->
+<!--    </p>-->
+<!--    <h5> 'file' mode </h5>-->
+<!--    <p> In file mode, the node will try to read speech binary content to be translated from the file path given.-->
+<!--    </p>-->
+<!--    <h5> 'payload' mode </h5>-->
+<!--    <p> In payload mode, the node will try to read speech binary content to be translated from <code>msg.payload</code>. </p>-->
+
+<!--    <p> Note that To languages field must be a single language or multiple languages separated by commas. </p>-->
+<!--</script>-->
