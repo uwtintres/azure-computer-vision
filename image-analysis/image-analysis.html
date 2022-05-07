@@ -4,6 +4,7 @@
         color: '#008AD7',
         defaults: {
             name: { value: ''  },
+            serviceType: { value: '1', required: true },
             inputMode: { value: 'url', required: true },
             imageFilePath: { value: '', validate: function() {
                     // If input mode is file, imageFilePath is required
@@ -16,6 +17,7 @@
                     return true;
             }},
             features: { value: '',  validate: function() {
+                    if (this.serviceType !== 'analyze image') return true;
                     const rex = /^[a-zA-Z]+(\s*,\s*[a-zA-Z]+)*$/
                     return rex.test(this.features)
             }}
@@ -40,6 +42,14 @@
                     $('#node-input-div-imageUrl').hide();
                 }
             });
+
+            $('#node-input-serviceType').on('change', function() {
+                if (this.value !== '1') {
+                    $('#node-input-div-features').hide();
+                } else {
+                    $('#node-input-div-features').show();
+                }
+            });
         },
         icon: 'font-awesome/fa-exchange',
     });
@@ -49,6 +59,16 @@
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name </label>
         <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-serviceType"><i class="fa fa-tag"></i> Service type </label>
+        <select name="node-input-serviceType" id="node-input-serviceType">
+            <option value="1"> analyze image </option>
+            <option value="2"> describe image </option>
+            <option value="3"> detect objects </option>
+            <option value="4"> get area of interest </option>
+        </select>
     </div>
 
     <div class="form-row">
