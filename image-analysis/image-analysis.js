@@ -8,7 +8,7 @@ module.exports = function(RED) {
             try {
                 const options = {
                     inputMode: config.inputMode,
-                    imgFilePath: config.imgFilePath,
+                    imageFilePath: config.imageFilePath,
                     imageUrl: config.imageUrl,
                     features: config.features,
                 };
