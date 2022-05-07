@@ -24,7 +24,6 @@
   "author": "Tsung Jui Wang",
   "license": "MIT",
   "dependencies": {
-    "@azure/cognitiveservices-computervision": "^8.2.0",
     "axios": "^0.27.2"
   }
 }
