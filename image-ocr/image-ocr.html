@@ -1,26 +1,20 @@
 <script type="text/javascript">
-    RED.nodes.registerType('img-analysis',{
+    RED.nodes.registerType('img-ocr',{
         category: 'Azure Computer Vision',
         color: '#008AD7',
         defaults: {
             name: { value: ''  },
-            serviceType: { value: '1', required: true },
             inputMode: { value: 'url', required: true },
             imageFilePath: { value: '', validate: function() {
                     // If input mode is file, imageFilePath is required
                     if (this.inputMode === 'file') return !!this.imageFilePath;
                     return true;
-            }},
+                }},
             imageUrl: { value: '', validate: function() {
                     // If input mode is url, imageUrl is required
                     if (this.inputMode === 'url') return !!this.imageUrl;
                     return true;
-            }},
-            features: { value: '',  validate: function() {
-                    if (this.serviceType !== 'analyze image') return true;
-                    const rex = /^[a-zA-Z]+(\s*,\s*[a-zA-Z]+)*$/
-                    return rex.test(this.features)
-            }}
+                }},
         },
         credentials: {
             key: { type: 'password' },
@@ -30,7 +24,7 @@
         outputs: 1,
         label: function() {
             if (this.name) return this.name;
-            return 'ms-img-analysis';
+            return 'ms-img-ocr';
         },
         oneditprepare: function() {
             $('#node-input-inputMode').on('change', function() {
@@ -42,33 +36,15 @@
                     $('#node-input-div-imageUrl').hide();
                 }
             });
-
-            $('#node-input-serviceType').on('change', function() {
-                if (this.value !== '1') {
-                    $('#node-input-div-features').hide();
-                } else {
-                    $('#node-input-div-features').show();
-                }
-            });
         },
         icon: 'font-awesome/fa-exchange',
     });
 </script>
 
-<script type="text/html" data-template-name="img-analysis">
+<script type="text/html" data-template-name="img-ocr">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name </label>
         <input type="text" id="node-input-name" placeholder="Name">
-    </div>
-
-    <div class="form-row">
-        <label for="node-input-serviceType"><i class="fa fa-tag"></i> Service type </label>
-        <select name="node-input-serviceType" id="node-input-serviceType">
-            <option value="1"> analyze image </option>
-            <option value="2"> describe image </option>
-            <option value="3"> detect objects </option>
-            <option value="4"> get area of interest </option>
-        </select>
     </div>
 
     <div class="form-row">
@@ -87,11 +63,6 @@
     <div id="node-input-div-imageUrl" class="form-row">
         <label for="node-input-imageUrl"><i class="fa fa-tag"></i> Image url </label>
         <input type="text" id="node-input-imageUrl" placeholder="URL to the image">
-    </div>
-
-    <div id="node-input-div-features" class="form-row">
-        <label for="node-input-features"><i class="fa fa-tag"></i> Features </label>
-        <input type="text" id="node-input-features" placeholder="Features to be included">
     </div>
 
     <div class="form-row">

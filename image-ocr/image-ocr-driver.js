@@ -1,7 +1,7 @@
 const axios = require('axios').default;
 const ImageAnalysisBase = require('../utilities/image-analysis-base');
 
-class ImageAnalysisObjDetect extends ImageAnalysisBase {
+class ImageOcrDriver extends ImageAnalysisBase {
 
     constructor(node, key, region) {
         super(node, key, region);
@@ -11,9 +11,10 @@ class ImageAnalysisObjDetect extends ImageAnalysisBase {
 
     async analyzeInternal({ config, data }) {
         this.setStatus({ fill: 'green', shape: 'dot', text: 'detecting' });
-        const res = await axios.post(`https://${this.getRegion()}.api.cognitive.microsoft.com/vision/v3.2/detect`, data, config);
+        const res = await axios.post(`https://${this.getRegion()}.api.cognitive.microsoft.com/vision/v3.0/ocr?language=unk`, data, config);
         return res.data;
+
     }
 }
 
-module.exports = ImageAnalysisObjDetect;
+module.exports = ImageOcrDriver;

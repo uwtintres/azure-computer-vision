@@ -1,5 +1,5 @@
 const axios = require('axios').default;
-const ImageAnalysisBase = require('./image-analysis-base');
+const ImageAnalysisBase = require('../utilities/image-analysis-base');
 
 class ImageAnalysisGetInterest extends ImageAnalysisBase {
 

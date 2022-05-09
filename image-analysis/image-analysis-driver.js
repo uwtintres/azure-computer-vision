@@ -1,5 +1,5 @@
 const axios = require('axios').default;
-const ImageAnalysisBase = require('./image-analysis-base');
+const ImageAnalysisBase = require('../utilities/image-analysis-base');
 
 class ImageAnalysisDriver extends ImageAnalysisBase {
     #supportedFeatures;
@@ -37,7 +37,7 @@ class ImageAnalysisDriver extends ImageAnalysisBase {
     }
 
     async analyzeInternal({ features, config, data }) {
-        this.setStatus({ fill: 'green', shape: 'dot', text: 'recognizing' });
+        this.setStatus({ fill: 'green', shape: 'dot', text: 'analyzing' });
         const res = await axios.post(`https://${this.getRegion()}.api.cognitive.microsoft.com/vision/v3.2/analyze?visualFeatures=${features}`, data, config);
         return res.data;
     }

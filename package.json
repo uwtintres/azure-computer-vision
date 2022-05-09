@@ -18,7 +18,8 @@
   "node-red": {
     "version": ">=2.0.0",
     "nodes": {
-      "ms-img-analysis": "image-analysis/image-analysis.js"
+      "ms-img-analysis": "image-analysis/image-analysis.js",
+      "ms-img-ocr": "image-ocr/image-ocr.js"
     }
   },
   "author": "Tsung Jui Wang",
