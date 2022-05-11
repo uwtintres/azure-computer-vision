@@ -1,15 +1,13 @@
 {
-  "name": "azure-computer-vision",
+  "name": "@intres/azure-computer-vision",
   "version": "1.0.0",
   "description": "Node-red nodes for Microsoft Azure Computer Vision",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "Javascript",
     "Azure",
     "Computer Vision",
+    "Image analysis",
     "node-red"
   ],
   "engines": {
