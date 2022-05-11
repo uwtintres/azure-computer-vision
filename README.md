@@ -12,4 +12,5 @@ In this example, The node will output the corresponding objects of the chosen se
 is "Tags,Colors". Features should be comma separated if more than one is provided.
 
 ![Example flow](https://github.com/uwtintres/azure-computer-vision/blob/main/img/response.png?raw=true)
+
 The output format is exactly from the official API document and is passed to the next node for further usage.
