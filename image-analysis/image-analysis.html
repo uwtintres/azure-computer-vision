@@ -105,36 +105,24 @@
     </div>
 </script>
 
-<!--<script type="text/html" data-help-name="img-analysis">-->
-<!--    <p> Speech translation of Microsoft Cognitive Services </p>-->
-<!--    <h3>Inputs</h3>-->
-<!--    <dl class="message-properties">-->
-<!--        <dt> msg.payload-->
-<!--            <span class="property-type"> Buffer | string </span>-->
-<!--        </dt>-->
-<!--        <dd>-->
-<!--            If the mode is 'file', this field should be a string of an absolute path where the WAV file to be translated is.-->
-<!--            If the mode is 'payload', this field should be a Buffer class instance containing the speech binary content to be translated.-->
-<!--        </dd>-->
-<!--    </dl>-->
-<!--    <h3>Outputs</h3>-->
-<!--    <dl class="message-properties">-->
-<!--        <dt> msg.payload-->
-<!--            <span class="property-type"> array </span>-->
-<!--        </dt>-->
-<!--        <dd>-->
-<!--            An array of translated text and the code of the language used in translation. Each array element is an object of <code>{ language, translatedText }</code>.-->
-<!--        </dd>-->
-<!--    </dl>-->
-<!--    <h3>Details</h3>-->
-<!--    <p>-->
-<!--        There are two input modes for this node: file mode and payload mode.-->
-<!--    </p>-->
-<!--    <h5> 'file' mode </h5>-->
-<!--    <p> In file mode, the node will try to read speech binary content to be translated from the file path given.-->
-<!--    </p>-->
-<!--    <h5> 'payload' mode </h5>-->
-<!--    <p> In payload mode, the node will try to read speech binary content to be translated from <code>msg.payload</code>. </p>-->
-
-<!--    <p> Note that To languages field must be a single language or multiple languages separated by commas. </p>-->
-<!--</script>-->
+<script type="text/html" data-help-name="img-analysis">
+    <p> Image analysis of Microsoft Computer Vision </p>
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt> msg.payload
+            <span class="property-type"> Object </span>
+        </dt>
+        <dd>
+             The node contains objects corresponding to the current services. This node currently supports analyze image, describe image, detect objects and get area of interest. For more information about output, please refer to the <a href="https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f21b">official document</a>.
+        </dd>
+    </dl>
+    <h3>Details</h3>
+    <p>
+        There are two input modes for this node: file mode and url mode.
+    </p>
+    <h5> 'file' mode </h5>
+    <p> In file mode, the node will try to read image content to be analyzed from the file path given.
+    </p>
+    <h5> 'url' mode </h5>
+    <p> In url mode, the node will try to read image content to be analyzed from url provided. </p>
+</script>
