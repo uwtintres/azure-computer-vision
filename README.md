@@ -1,6 +1,15 @@
 # azure-computer-vision
 ## Introduction
 **azure-cognitive** is a collection of nodes that perform computer vision services from [Microsoft Azure Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/).
+
+### Features:
+These features are currently supported:
+1. Analyze image with multiple features(Tags, Color... etc.)
+2. Describe image.
+3. Detect objects.
+4. Get area of interest.
+5. Image optical character recognition(OCR).
+
 ## Installation
 `npm install @intres/azure-computer-vision`
 ## Example usage
