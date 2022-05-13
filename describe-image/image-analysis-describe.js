@@ -9,9 +9,9 @@ class ImageAnalysisDescribe extends ImageAnalysisBase {
 
     preProcess(options) {}
 
-    async analyzeInternal({ config, data }) {
+    async analyzeInternal({ maxCandidate, language, config, data }) {
         this.setStatus({ fill: 'green', shape: 'dot', text: 'recognizing' });
-        const res = await axios.post(`https://${this.getRegion()}.api.cognitive.microsoft.com/vision/v3.2/describe`, data, config);
+        const res = await axios.post(`https://${this.getRegion()}.api.cognitive.microsoft.com/vision/v3.2/describe?maxCandidate=${maxCandidate}&language=${language}`, data, config);
         return res.data;
     }
 }
