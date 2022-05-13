@@ -4,7 +4,6 @@
         color: '#008AD7',
         defaults: {
             name: { value: ''  },
-            serviceType: { value: '1', required: true },
             inputMode: { value: 'url', required: true },
             imageFilePath: { value: '', validate: function() {
                     // If input mode is file, imageFilePath is required
@@ -42,14 +41,6 @@
                     $('#node-input-div-imageUrl').hide();
                 }
             });
-
-            $('#node-input-serviceType').on('change', function() {
-                if (this.value !== '1') {
-                    $('#node-input-div-features').hide();
-                } else {
-                    $('#node-input-div-features').show();
-                }
-            });
         },
         icon: 'font-awesome/fa-exchange',
     });
@@ -59,16 +50,6 @@
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name </label>
         <input type="text" id="node-input-name" placeholder="Name">
-    </div>
-
-    <div class="form-row">
-        <label for="node-input-serviceType"><i class="fa fa-tag"></i> Service type </label>
-        <select name="node-input-serviceType" id="node-input-serviceType">
-            <option value="1"> analyze image </option>
-            <option value="2"> describe image </option>
-            <option value="3"> detect objects </option>
-            <option value="4"> get area of interest </option>
-        </select>
     </div>
 
     <div class="form-row">
@@ -113,7 +94,7 @@
             <span class="property-type"> Object </span>
         </dt>
         <dd>
-             The node contains objects corresponding to the current services. This node currently supports analyze image, describe image, detect objects and get area of interest. For more information about output, please refer to the <a href="https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f21b">official document</a>.
+             For more information about output, please refer to the <a href="https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f21b">official document</a>.
         </dd>
     </dl>
     <h3>Details</h3>
@@ -125,4 +106,6 @@
     </p>
     <h5> 'url' mode </h5>
     <p> In url mode, the node will try to read image content to be analyzed from url provided. </p>
+
+    <p> The features input should be comma-separated if more than one feature is provided. </p>
 </script>
