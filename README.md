@@ -1,10 +1,10 @@
 # azure-computer-vision
 ## Introduction
-**azure-cognitive** is a collection of nodes that perform computer vision services from [Microsoft Azure Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/).
+**azure-computer-vision** is a collection of nodes that perform computer vision services from [Microsoft Azure Computer Vision Services](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/).
 
 ### Features:
 These features are currently supported:
-1. Analyze image with multiple features(Tags, Color... etc.)
+1. Analyze images with multiple features(Tags, Color... etc.)
 2. Describe image.
 3. Detect objects.
 4. Get area of interest.

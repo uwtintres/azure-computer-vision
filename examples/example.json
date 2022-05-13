@@ -1,14 +1,30 @@
 [
   {
+    "id": "3db153ef34bcba46",
+    "type": "debug",
+    "z": "c5d855a5bd3b09c1",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 630,
+    "y": 360,
+    "wires": []
+  },
+  {
     "id": "9f4dc91d7c0ea1b5",
     "type": "img-analysis",
     "z": "c5d855a5bd3b09c1",
     "name": "",
-    "serviceType": "1",
     "inputMode": "url",
     "imageFilePath": "",
     "imageUrl": "https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmlld3xlbnwwfHwwfHw%3D&w=1000&q=80",
     "features": "Tags, Color",
+    "details": "",
     "credentials": {},
     "x": 340,
     "y": 320,
@@ -19,10 +35,10 @@
     ]
   },
   {
-    "id": "57c12232b68935b6",
+    "id": "6e7f99d53b55c0bb",
     "type": "inject",
     "z": "c5d855a5bd3b09c1",
-    "name": "Inject",
+    "name": "",
     "props": [
       {
         "p": "payload"
@@ -39,28 +55,12 @@
     "topic": "",
     "payload": "",
     "payloadType": "date",
-    "x": 150,
-    "y": 320,
+    "x": 100,
+    "y": 280,
     "wires": [
       [
         "9f4dc91d7c0ea1b5"
       ]
     ]
-  },
-  {
-    "id": "3db153ef34bcba46",
-    "type": "debug",
-    "z": "c5d855a5bd3b09c1",
-    "name": "",
-    "active": true,
-    "tosidebar": true,
-    "console": false,
-    "tostatus": false,
-    "complete": "false",
-    "statusVal": "",
-    "statusType": "auto",
-    "x": 550,
-    "y": 320,
-    "wires": []
   }
 ]
