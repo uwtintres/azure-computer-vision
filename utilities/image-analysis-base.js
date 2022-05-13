@@ -87,7 +87,8 @@ class ImageAnalysisBase {
         try {
             return await this.analyze(options);
         } catch (e) {
-            throw e;
+            const message = e?.response?.data?.error?.message || e.message;
+            throw new Error(message);
         }
     }
 }

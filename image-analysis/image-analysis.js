@@ -10,6 +10,8 @@ module.exports = function(RED) {
                     imageFilePath: config.imageFilePath,
                     imageUrl: config.imageUrl,
                     features: config.features,
+                    details: config.details,
+                    modelVersion: config.modelVersion || 'latest',
                 };
                 const driver = new ImageAnalysisDriver(this, this.credentials.key, this.credentials.region);
 
@@ -20,7 +22,7 @@ module.exports = function(RED) {
                 // Clear status in the node
                 this.status({});
                 // Send error to catch node, original msg object must be provided
-                this.error(e?.response?.data?.message || e.message, msg);
+                this.error(e.message, msg);
             }
         });
     }

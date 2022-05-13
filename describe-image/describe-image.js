@@ -24,7 +24,7 @@ module.exports = function(RED) {
                 // Clear status in the node
                 this.status({});
                 // Send error to catch node, original msg object must be provided
-                this.error(e?.response?.data?.message || e.message, msg);
+                this.error(e.message, msg);
             }
         });
     }

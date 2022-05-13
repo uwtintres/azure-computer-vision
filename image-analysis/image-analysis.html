@@ -16,10 +16,11 @@
                     return true;
             }},
             features: { value: '',  validate: function() {
-                    if (this.serviceType !== 'analyze image') return true;
                     const rex = /^[a-zA-Z]+(\s*,\s*[a-zA-Z]+)*$/
                     return rex.test(this.features)
-            }}
+            }},
+            details: { value: '' },
+            modelVersion: { value: '' }
         },
         credentials: {
             key: { type: 'password' },
@@ -75,6 +76,11 @@
         <input type="text" id="node-input-features" placeholder="Features to be included">
     </div>
 
+    <div id="node-input-div-details" class="form-row">
+        <label for="node-input-details"><i class="fa fa-tag"></i> Details </label>
+        <input type="text" id="node-input-details" placeholder="Domain-specific details to return">
+    </div>
+
     <div class="form-row">
         <label for="node-input-key"><i class="fa fa-tag"></i> Key </label>
         <input type="password" id="node-input-key" placeholder="Your beautiful key">
@@ -94,7 +100,7 @@
             <span class="property-type"> Object </span>
         </dt>
         <dd>
-             For more information about output, please refer to the <a href="https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f21b">official document</a>.
+             For more information about output, please refer to the <a href="https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b">official document</a>.
         </dd>
     </dl>
     <h3>Details</h3>
@@ -107,5 +113,7 @@
     <h5> 'url' mode </h5>
     <p> In url mode, the node will try to read image content to be analyzed from url provided. </p>
 
-    <p> The features input should be comma-separated if more than one feature is provided. </p>
+    <p> features input should be comma-separated if more than one feature is provided. </p>
+    <p> details is an optional input to specify which domain-specific details to return. Multiple values should be comma-separated. For valid input refer to <a href="https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b"> official document</a>. </p>
+    <p> modelVersion is an optional input to specify the version of the AI model. The default value is "latest".</p>
 </script>

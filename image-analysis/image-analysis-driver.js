@@ -36,9 +36,14 @@ class ImageAnalysisDriver extends ImageAnalysisBase {
         options.features = this.checkFeatures(options.features);
     }
 
-    async analyzeInternal({ features, config, data }) {
+    async analyzeInternal({ features, details, modelVersion, config, data }) {
+        let url = `https://${this.getRegion()}.api.cognitive.microsoft.com/vision/v3.2/analyze?visualFeatures=${features}`;
+
+        if (details) url = `${url}&details=${details}`;
+
+        url = `${url}&model-version=${modelVersion}`;
         this.setStatus({ fill: 'green', shape: 'dot', text: 'analyzing' });
-        const res = await axios.post(`https://${this.getRegion()}.api.cognitive.microsoft.com/vision/v3.2/analyze?visualFeatures=${features}`, data, config);
+        const res = await axios.post(url, data, config);
         return res.data;
     }
 }
