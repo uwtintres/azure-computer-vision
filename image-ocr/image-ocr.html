@@ -15,6 +15,8 @@
                     if (this.inputMode === 'url') return !!this.imageUrl;
                     return true;
                 }},
+            language: { value: ''},
+            modelVersion: { value: '' }
         },
         credentials: {
             key: { type: 'password' },
@@ -65,6 +67,16 @@
         <input type="text" id="node-input-imageUrl" placeholder="URL to the image">
     </div>
 
+    <div id="node-input-div-language" class="form-row">
+        <label for="node-input-language"><i class="fa fa-tag"></i> Language </label>
+        <input type="text" id="node-input-language" placeholder="Language code of the text to be detected in the image">
+    </div>
+
+    <div id="node-input-div-modelVersion" class="form-row">
+        <label for="node-input-modelVersion"><i class="fa fa-tag"></i> Model version </label>
+        <input type="text" id="node-input-modelVersion" placeholder="Optional parameter to specify the version of the AI model">
+    </div>
+
     <div class="form-row">
         <label for="node-input-key"><i class="fa fa-tag"></i> Key </label>
         <input type="password" id="node-input-key" placeholder="Your beautiful key">
@@ -96,4 +108,7 @@
     </p>
     <h5> 'url' mode </h5>
     <p> In url mode, the node will try to read image content to be analyzed from url provided. </p>
+
+    <p> language is an optional input to specify language code of the text to be detected in the image. The default value is "unk", then the service will auto detect the language of the text in the image.</p>
+    <p> modelVersion is an optional input to specify the version of the AI model. The default value is "latest".</p>
 </script>

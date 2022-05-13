@@ -8,6 +8,10 @@
     "Azure",
     "Computer Vision",
     "Image analysis",
+    "Describe image",
+    "Detect objects",
+    "Get area of interest",
+    "Optical character recognition",
     "node-red"
   ],
   "engines": {
@@ -19,6 +23,7 @@
       "ms-img-analysis": "image-analysis/image-analysis.js",
       "ms-img-describe": "describe-image/describe-image.js",
       "ms-img-obj-detect": "detect-objects/detect-objects.js",
+      "ms-area-of-interest": "get-area-of-interest/get-area-of-interest.js",
       "ms-img-ocr": "image-ocr/image-ocr.js"
     }
   },

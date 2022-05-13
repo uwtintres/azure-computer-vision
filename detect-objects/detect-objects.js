@@ -9,10 +9,10 @@ module.exports = function(RED) {
                     inputMode: config.inputMode,
                     imageFilePath: config.imageFilePath,
                     imageUrl: config.imageUrl,
+                    modelVersion: config.modelVersion || 'latest',
                 };
 
                 const driver = new ImageAnalysisDetect(this, this.credentials.key, this.credentials.region);
-
 
                 const res = await driver.run(options);
                 this.status({});

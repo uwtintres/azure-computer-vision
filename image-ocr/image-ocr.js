@@ -9,6 +9,8 @@ module.exports = function(RED) {
                     inputMode: config.inputMode,
                     imageFilePath: config.imageFilePath,
                     imageUrl: config.imageUrl,
+                    language: config.language || 'unk',
+                    modelVersion: config.modelVersion || 'latest',
                 };
 
                 const driver = new ImageOcrDriver(this, this.credentials.key, this.credentials.region);

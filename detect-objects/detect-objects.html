@@ -15,6 +15,7 @@
                     if (this.inputMode === 'url') return !!this.imageUrl;
                     return true;
                 }},
+            modelVersion: {value: ''}
         },
         credentials: {
             key: { type: 'password' },
@@ -65,6 +66,11 @@
         <input type="text" id="node-input-imageUrl" placeholder="URL to the image">
     </div>
 
+    <div id="node-input-div-modelVersion" class="form-row">
+        <label for="node-input-modelVersion"><i class="fa fa-tag"></i> Model version </label>
+        <input type="text" id="node-input-modelVersion" placeholder="Optional parameter to specify the version of the AI model">
+    </div>
+
     <div class="form-row">
         <label for="node-input-key"><i class="fa fa-tag"></i> Key </label>
         <input type="password" id="node-input-key" placeholder="Your beautiful key">
@@ -96,4 +102,6 @@
     </p>
     <h5> 'url' mode </h5>
     <p> In url mode, the node will try to read image content to be analyzed from url provided. </p>
+
+    <p> modelVersion is an optional input to specify the version of the AI model. The default value is "latest".</p>
 </script>
