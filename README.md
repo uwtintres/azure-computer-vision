@@ -9,6 +9,7 @@ These features are currently supported:
 3. Detect objects.
 4. Get area of interest.
 5. Image optical character recognition(OCR).
+6. Get thumbnail.
 
 Most of the parameters of these nodes are supported. For more information about all the settings and output format, please refer to the individual tab of the service in [official API document](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b).
 

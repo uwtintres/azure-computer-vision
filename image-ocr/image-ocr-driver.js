@@ -5,7 +5,7 @@ class ImageOcrDriver extends ImageAnalysisBase {
 
     constructor(node, key, region) {
         super(node, key, region);
-        this.baseUrl = `https://${this.getRegion()}.api.cognitive.microsoft.com/vision/v3.2/ocr`
+        this.baseUrl = `https://${this.getRegion()}.api.cognitive.microsoft.com/vision/v3.2/ocr`;
     }
 
     preProcess(options) {}
