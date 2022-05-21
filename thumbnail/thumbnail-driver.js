@@ -1,5 +1,4 @@
 const axios = require('axios').default;
-const fs = require('fs');
 const ImageAnalysisBase = require('../utilities/image-analysis-base');
 
 class ThumbnailDriver extends ImageAnalysisBase {
@@ -12,7 +11,7 @@ class ThumbnailDriver extends ImageAnalysisBase {
     preProcess(options) {}
 
     async analyzeInternal({ width, height, smartCropping, modelVersion, config, data }) {
-        this.setStatus({ fill: 'green', shape: 'dot', text: 'detecting' });
+        this.setStatus({ fill: 'green', shape: 'dot', text: 'Cropping' });
         // Need to specify response type to arraybuffer to handle binary image
         config = {
             ...config,
