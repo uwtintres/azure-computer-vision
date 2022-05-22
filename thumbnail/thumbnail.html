@@ -118,10 +118,10 @@
     <h3>Outputs</h3>
     <dl class="message-properties">
         <dt> msg.payload
-            <span class="property-type"> Object </span>
+            <span class="property-type"> ArrayBuffer </span>
         </dt>
         <dd>
-            An object contains <code>language</code>, <code>text angle</code>, <code>orientation</code> and <code>regions</code>. For more information about output, please refer to the <a href="https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f20d">official document</a>.
+            An ArrayBuffer of the thumbnail.
         </dd>
     </dl>
     <h3>Details</h3>
@@ -134,6 +134,6 @@
     <h5> 'url' mode </h5>
     <p> In url mode, the node will try to read image content to be analyzed from url provided. </p>
 
-    <p> language is an optional input to specify language code of the text to be detected in the image. The default value is "unk", then the service will auto detect the language of the text in the image.</p>
+    <p> smartCropping is an optional input to specify if smart cropping should be applied or not. The default value is true.</p>
     <p> modelVersion is an optional input to specify the version of the AI model. The default value is "latest".</p>
 </script>

@@ -16,7 +16,7 @@ module.exports = function(RED) {
                     imageUrl: config.imageUrl,
                     height: config.height,
                     width: config.width,
-                    smartCropping: SMART_CROPPING[config.smartCropping] || true,
+                    smartCropping: SMART_CROPPING[config.smartCropping] || SMART_CROPPING['yes'],
                     modelVersion: config.modelVersion || 'latest',
                 };
 
