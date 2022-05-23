@@ -13,6 +13,7 @@
     "Get area of interest",
     "Optical character recognition",
     "Get thumbnail",
+    "Read",
     "node-red"
   ],
   "engines": {
@@ -26,7 +27,9 @@
       "ms-img-obj-detect": "detect-objects/detect-objects.js",
       "ms-area-of-interest": "get-area-of-interest/get-area-of-interest.js",
       "ms-img-ocr": "image-ocr/image-ocr.js",
-      "ms-img-thumbnail": "thumbnail/thumbnail.js"
+      "ms-img-thumbnail": "thumbnail/thumbnail.js",
+      "ms-read": "read/read.js",
+      "ms-get-read-result": "get-read-result/get-read-result.js"
     }
   },
   "author": "Tsung Jui Wang",

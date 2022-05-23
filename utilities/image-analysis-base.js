@@ -45,7 +45,6 @@ class ImageAnalysisBase {
         }
     }
 
-
     async analyze(options) {
         // Test input mode
         this.checkInputMode(options);
@@ -64,7 +63,7 @@ class ImageAnalysisBase {
             data = {
                 "url": options.imageUrl
             }
-        } else {
+        } else if (options.inputMode === this.INPUT_MODE.file) {
             config = {
                 headers: {
                     "Content-Type": "application/octet-stream",
@@ -74,6 +73,13 @@ class ImageAnalysisBase {
 
             data = fs.readFileSync(options.imageFilePath);
             if (data.length === 0) throw new Error('The image file provided is empty, recognition aborted');
+        } else {
+            // For get-read-result
+            config = {
+                headers: {
+                    "Ocp-Apim-Subscription-Key": this.#key
+                }
+            }
         }
 
         return this.analyzeInternal({
@@ -87,6 +93,7 @@ class ImageAnalysisBase {
         try {
             return await this.analyze(options);
         } catch (e) {
+            console.log(e);
             const message = e?.response?.data?.error?.message || e.message;
             throw new Error(message);
         }
