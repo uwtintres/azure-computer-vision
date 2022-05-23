@@ -30,12 +30,15 @@ The output format is exactly from the official API document and is passed to the
 
 ## Example usage of read/get-read-result
 The example flow is as follows:
+
 ![Example flow](https://github.com/uwtintres/azure-computer-vision/blob/main/img/read.png?raw=true)
 
 The config of the read node is as follows:
+
 ![Read config](https://github.com/uwtintres/azure-computer-vision/blob/main/img/read-config.png?raw=true)
 
 In this example, read node accepts an image url and will output another URL for further query as its msg.payload.
+
 ![url](https://github.com/uwtintres/azure-computer-vision/blob/main/img/operationurl.png?raw=true)
 
 This url should be recorded and passed to get-read-result node as input. The reason why the returned url should be kept instead of being passed to get-read-result node directly is that
