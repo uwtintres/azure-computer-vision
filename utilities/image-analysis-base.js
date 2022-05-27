@@ -93,7 +93,6 @@ class ImageAnalysisBase {
         try {
             return await this.analyze(options);
         } catch (e) {
-            console.log(e);
             const message = e?.response?.data?.error?.message || e.message;
             throw new Error(message);
         }
