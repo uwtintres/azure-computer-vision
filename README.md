@@ -2,6 +2,10 @@
 ## Introduction
 **azure-computer-vision** is a collection of nodes that perform computer vision services from [Microsoft Azure Computer Vision Services](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/).
 
+### About us
+The [Internet of Things Research (INTRES) Group](https://github.com/UWTINTRES)
+at the University of Washington Tacoma (UWT) developed and maintains this package to promote Internet of Things (IoT) research and teaching. This package seeks to accelerate the adoption of IoT concepts by developing a simple mechanism to increase the productivity of researchers, software engineers, developers, and data scientists.
+
 ### Features:
 These features are currently supported:
 1. Analyze images with multiple features(Tags, Color... etc.)
@@ -43,3 +47,7 @@ In this example, read node accepts an image url and will output another URL for 
 
 This url should be recorded and passed to get-read-result node as input. The reason why the returned url should be kept instead of being passed to get-read-result node directly is that
 the reading process is usually not completed when the url is returned, and thus the result is not available. The url should be recorded and be used later. The time one should wait depends on the input file.
+
+
+#### Disclaimer
+INTRES and UWT are not responsible for the usage or utilization of these packages. They are meant to promote IoT research and education. IoT service providers may require additional verification steps to utilize the features outlined in these packages. We are not in any way responsible for the misuse of these packages. For more details on the service agreement and terms, please click [here](https://azure.microsoft.com/en-us/support/legal/).
